@@ -1,0 +1,21 @@
+version: '3.5'
+
+services:
+  app:
+    build: .
+    command: ./scripts/run.sh
+    environment:
+      - NATS_URI=${NATS_URI}
+    volumes:
+      - .:/go/src/github.com/cfx-cv/foible:z
+    ports:
+      - "3001:80"
+    networks:
+      default:
+      gofeed:
+        aliases:
+          - foible_app
+
+networks:
+  gofeed:
+    external: true
