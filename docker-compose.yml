@@ -12,10 +12,10 @@ services:
       - "3001:80"
     networks:
       default:
-      gofeed:
+      go-feed:
         aliases:
           - foible_app
 
 networks:
-  gofeed:
+  go-feed:
     external: true
